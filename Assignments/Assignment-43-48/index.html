@@ -1,13 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment-43-48</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>EVENTS I</h1>
-    <script src="app.js"></script>
-</body>
+    <!-- Show an alert box on click on a link. -->
+    <a href="#" onclick="alert('Hello Jee');"> Click me </a>
+
+
+    <!-- Display some Mobile images in browser. On click on an image Show the message in alert to user. -->
+    <img
+      src="./292-2924604_svg-freeuse-cellphone-clipart-cell-phone-apple-iphone.png"
+      height="300px"
+      width="350px"
+      onclick="alert('Thanks for purchasing a phone from us')"
+    />
+    <img
+      src="./download.jpg"
+      height="300px"
+      onclick="alert('Thanks for purchasing a phone from us')"
+    />
+    <img
+      src="./images.jpg"
+      height="300px"
+      onclick="alert('Thanks for purchasing a phone from us')"
+    />
+    <img
+      src="./download (1).jpg"
+      height="400px"
+      width="500px"
+      onclick="alert('Thanks for purchasing a phone from us')"
+    />
+
+
+    <!-- Display 10 student records in table and each row should contain a delete button. If you click on a button to delete a record, entire row should be deleted. -->
+   <span>
+    <table border="1">
+      <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Marks</th>
+        <th>Delete</th>
+      </tr>
+      <tr>
+        <td>Mahad</td>
+        <td>0</td>
+        <td>100</td>
+        <td>
+          <button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button>
+        </td>
+      </tr>
+      <tr>
+        <td>Arshman</td>
+        <td>1</td>
+        <td>90</td>
+        <td><button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Ali</td>
+        <td>2</td>
+        <td>80</td>
+        <td><button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Ahmed</td>
+        <td>3</td>
+        <td>75</td>
+        <td><button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Ahsan</td>
+        <td>4</td>
+        <td>70</td>
+        <td><button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Abbas</td>
+        <td>5</td>
+        <td>65</td>
+        <td><button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Mustafa</td>
+        <td>6</td>
+        <td>60</td>
+        <td><button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Hamza</td>
+        <td>7</td>
+        <td>55</td>
+        <td><button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Fayyaz</td>
+        <td>8</td>
+        <td>50</td>
+        <td><button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+      <tr>
+        <td>Sameer</td>
+        <td>9</td>
+        <td>30</td>
+        <td><button input type="button" value="Delete" onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+    </table>
+    </span>
+
+
+    <!-- Display an image in browser. Change the picture on mouseover and set the first picture on mouseout. -->
+    <img src="download (2).jpg" onMouseover="this.src='download (3).jpg'" onMouseout="this.src='download (2).jpg'">
+    
+    
+    <!-- Show a counter in browser. Counter should increase on click on increase button and decrease on click on decrease button. And show updated counter value in browser. -->
+    <span id="counter">0</span>
+    <button onclick="increaseCounter()">Increase</button>
+    <button onclick="decreaseCounter()">Decrease</button>
+    <script>
+      function deleteRow(params) {
+        var row = params.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+      }
+      function increaseCounter() {
+      var counter = document.getElementById("counter");
+      counter.innerHTML = parseInt(counter.innerHTML) + 1;
+      }
+      function decreaseCounter() {
+      var counter = document.getElementById("counter");
+      counter.innerHTML = parseInt(counter.innerHTML) - 1;
+      }
+    </script>
+    </style>
+  </body>
 </html>

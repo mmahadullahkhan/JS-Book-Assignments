@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment-53-57</title>
 </head>
+
 <body>
     <h1>EVENTS III</h1>
-    <script src="app.js"></script>
+    <!-- Consider you have 4 images in a file as shown below: Now When you click on an image it should display in a modal. -->
+    <img src="./download.png" alt="image1" id="img1" onclick="showImage(this.id)">
+    <img src="./download (1).png" alt="image2" id="img2" onclick="showImage(this.id)">
+    <img src="./download (2).png" alt="image3" id="img3" onclick="showImage(this.id)">
+    <img src="./download (3).png" alt="image4" id="img4" onclick="showImage(this.id)">
+    <div id="modal">
+        <img src="" alt="" id="modal-img">
+        <span id="close">&times;</span>
+    </div>
+
+
+    <!-- Create a paragraph and two buttons “zoom in ”(+) and “zoom out”(-). On each click on “zoom in”(+) , add 10px in font size of paragraph. And on each click on “zoom out”(-) , minus 10px in font size of paragraph. -->
+    <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos . Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos.Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. Quisquam, quos. ></p>
+    <button id="zoom-in">Zoom In</button>
+    <button id="zoom-out">Zoom Out</button>
+    <script>
+
+        function showImage(id) {
+            var modal = document.getElementById("modal");
+            var modalImg = document.getElementById("modal-img");
+            var close = document.getElementById("close");
+            modal.style.display = "block";
+            modalImg.src = document.getElementById(id).src;
+            close.onclick = function () {
+                modal.style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
+        var para = document.getElementById("para");
+        var zoomIn = document.getElementById("zoom-in");
+        var zoomOut = document.getElementById("zoom-out");
+        zoomIn.onclick = function () {
+            para.style.fontSize = para.style.fontSize + "10px";
+        }
+        zoomOut.onclick = function () {
+            para.style.fontSize = para.style.fontSize - "10px";
+            }
+    </script>
 </body>
+
 </html>

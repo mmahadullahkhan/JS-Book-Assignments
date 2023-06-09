@@ -1,13 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment-49-52</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment-49-52</title>
 </head>
+
 <body>
-    <h1>EVENTS II</h1>
-    <script src="app.js"></script>
+  <h1>EVENTS II</h1>
+  <!-- Create a signup form and display form data in your web page on submission. -->
+  <form action="http://localhost:3000/signup" method="POST">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" />
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" />
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" />
+    <label for="password_confirmation">Confirm Password</label>
+    <input type="password" name="password_confirmation" id="password_confirmation" />
+    <input type="submit" value="Submit" />
+  </form>
+
+  <div id="form-data"></div>
+
+
+  <!-- Suppose in your webpage there is content area in which you have entered your item details, but user can only see
+some details on first look. When user clicks on “Read more” button, full detail of that particular item will be displayed. -->
+  <div class="content">
+    <h1>Item Name</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam perferendis, quo, quos, quod, quibusdam quae
+      quas quasi quaerat delectus.
+
+    </p>
+
+    <button onclick="toggleContent()">Read more</button>
+  </div>
+  <div class="content-full">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam perferendis, quo, quos, quod, quibusdam quae
+      quas quasi quaerat delectus.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam perferendis, quo, quos, quod, quibusdam quae
+      quas quasi quaerat delectus.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam perferendis, quo, quos, quod, quibusdam quae
+      quas quasi quaerat delectus.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam perferendis, quo, quos, quod, quibusdam quae
+      quas quasi quaerat delectus.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam perferendis, quo, quos, quod, quibusdam quae
+      quas quasi quaerat delectus.
+    </p>
+  </div>
+
+  </div>
+
+
+  <!-- In previous assignment you have created a tabular data using javascript. Let’s modify that. Create a form which takes student’s details and show each student detail in table. Each row of table must contain a delete button and an edit button. On click on delete button entire row should be deleted. On click on edit button, a hidden form will appear with the values of that row. -->
+  <div class="container">
+    <h1>Student Details</h1>
+    <table id="myTable">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td>Mahad</td>
+        <td>mahad@gmail.com</td>
+        <td>03353192344</td>
+        <td><button onclick="deleteRow(this)">Delete</button>
+          <button onclick="editRow(this)">Edit</button>
+        </td>
+      </tr>
+      <td>Ahmed</td>
+      <td>ahmed033@gmail.com</td>
+      <td>012475367</td>
+      <td><button onclick="deleteRow(this)">Delete</button>
+        <button onclick="editRow(this)">Edit</button>
+      </td>
+      </tr>
+      <td>Ahsan</td>
+      <td>ahsan123@gmail.com</td>
+      <td>03325697977</td>
+      <td><button onclick="deleteRow(this)">Delete</button>
+        <button onclick="editRow(this)">Edit</button>
+      </td>
+      </tr>
+      <td>Abbas</td>
+      <td>abbas23@gmail.com</td>
+      <td>03341173894</td>
+      <td><button onclick="deleteRow(this)">Delete</button>
+        <button onclick="editRow(this)">Edit</button>
+      </td>
+      </tr>
+      <td>Amjad</td>
+      <td>amjad033@gmail.com</td>
+      <td>03353184759</td>
+      <td><button onclick="deleteRow(this)">Delete</button>
+        <button onclick="editRow(this)">Edit</button>
+      </td>
+      </tr>
+    </table>
+
+  </div>
+    </form>
+  <script>
+    function deleteRow(r) {
+      var i = r.parentNode.parentNode.rowIndex;
+      document.getElementById("myTable").deleteRow(i);
+      }
+      function editRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("myTable").rows[i].cells[0].innerHTML = "<input type='text' value='Ahsan'>";
+        document.getElementById("myTable").rows[i].cells[1].innerHTML = "<input type='text' value='<EMAIL>'>";
+          document.getElementById("myTable").rows[i].cells[2].innerHTML = "<input type='text' value='03325697977'>";
+          }
+          
+  function saveRow(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    var row = document.getElementById("myTable").rows[i];
+    var name = row.cells[0].getElementsByTagName('input')[0].value;
+    var email = row.cells[1].getElementsByTagName('input')[0].value;
+    var phone = row.cells[2].getElementsByTagName('input')[0].value;
+
+    row.cells[0].innerHTML = name;
+    row.cells[1].innerHTML = email;
+    row.cells[2].innerHTML = phone;
+    row.cells[3].innerHTML = "<button onclick='deleteRow(this)'>Delete</button> <button onclick='editRow(this)'>Edit</button>";
+  }
+
+  function cancelRow(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    var row = document.getElementById("myTable").rows[i];
+    var name = row.cells[0].getElementsByTagName('input')[0].value;
+    var email = row.cells[1].getElementsByTagName('input')[0].value;
+    var phone = row.cells[2].getElementsByTagName('input')[0].value;
+
+    row.cells[0].innerHTML = name;
+    row.cells[1].innerHTML = email;
+    row.cells[2].innerHTML = phone;
+    row.cells[3].innerHTML = "<button onclick='deleteRow(this)'>Delete</button> <button onclick='editRow(this)'>Edit</button>";
+  }
+  var form = document.querySelector("form");
+  var formDataDiv = document.getElementById("form-data");
+
+  form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  var formData = new FormData(form);
+  var data = {};
+
+  for (const entry of formData.entries()) {
+  data[entry[0]] = entry[1];
+  }
+  formDataDiv.textContent = JSON.stringify(data, null, 2);
+  });
+
+
+  function toggleContent() {
+  var fullContent = document.querySelector('.content-full');
+  var readMoreBtn = document.querySelector('.content button');
+
+  if (fullContent.style.display === 'none') {
+  fullContent.style.display = 'block';
+  readMoreBtn.textContent = 'Read less';
+  } else {
+  fullContent.style.display = 'none';
+  readMoreBtn.textContent = 'Read more';
+  }
+  }
+  </script>
 </body>
+
 </html>
